@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import ModalWindow from '../Components/ModalWindow';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck, faUsers, faFileLines, faLocationDot} from '@fortawesome/free-solid-svg-icons'
@@ -5,7 +7,15 @@ import { theme } from '../Styles/theme';
 
 
 function Sidebar(props) {
- 
+  const [modalIsOpen, setIsOpen] = useState(false); 
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
     return (
     <>
         <div style={styles.sidebar}>
@@ -15,9 +25,9 @@ function Sidebar(props) {
                 </div>
                 <Link to="/" style={styles.logoText}>Home</Link>
             </div> 
-            <div style={styles.option}>
+            <div type='button' style={styles.option} onClick={openModal}>
                 <FontAwesomeIcon icon={faFileLines} style={styles.icon}/>
-                <Link to="/contratos" style={styles.sidebarLink}>Contratos</Link>
+                <a style={styles.sidebarLink} onClick={openModal}>Contratos</a>
             </div>  
             <div style={styles.option}>
                 <FontAwesomeIcon icon={faUsers} style={styles.icon}/> 
@@ -31,6 +41,10 @@ function Sidebar(props) {
         </div>
         <div style={styles.divContent}>
             {props.children}
+
+            <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
+                <h1>teste modal</h1>
+            </ModalWindow>
         </div>
     </>
     )
@@ -81,10 +95,9 @@ function Sidebar(props) {
       padding: "16px",
       textDecoration: "none",
       fontFamily: theme.fonts.text,
-      fontWeight: 700
+      fontWeight: 700,
+      cursor: "pointer"
     },
-    active: { backgroundColor: theme.colors.activeSidebarBackground },
-    first: { marginTop: "23%" },
     divContent: { marginLeft: 220, padding: "1px", height: "100vh",overflow:"scroll" }
   }
   
