@@ -47,7 +47,7 @@ ModalCloseButton: {
 },
 
 ModalCloseButtonIcon: {
-  color: theme.colors.title,
+  color: theme.colors.primary,
   fontWeight: "bold",
   fontSize: "20px",
 },

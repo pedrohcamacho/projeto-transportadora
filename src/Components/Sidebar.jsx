@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck, faUsers, faFileLines, faLocationDot} from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../Styles/theme';
-
+import Input from '../Components/Input';
 
 function Sidebar(props) {
   const [modalIsOpen, setIsOpen] = useState(false); 
-
+  const [contrato, setContrato] = useState(""); 
   function openModal() {
     setIsOpen(true);
   }
@@ -43,7 +43,13 @@ function Sidebar(props) {
             {props.children}
 
             <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
-                <h1>teste modal</h1>
+                <h1>Contratos</h1>
+
+                <div style={styles.formGroup}> 
+                  <label style={styles.formLabel}>Contrato</label>
+                  <Input Value={contrato} setValue={setContrato}/>
+                </div> 
+
             </ModalWindow>
         </div>
     </>
@@ -98,7 +104,25 @@ function Sidebar(props) {
       fontWeight: 700,
       cursor: "pointer"
     },
-    divContent: { marginLeft: 220, padding: "1px", height: "100vh",overflow:"scroll" }
+    divContent: { 
+      marginLeft: 220,
+      padding: "1px",
+      height: "100vh",
+      overflow:"scroll" 
+    },
+    formGroup: { 
+      marginTop: "3%", 
+      width: "600px", 
+      display: "flex" ,
+  },
+  formLabel: {
+      fontFamily: theme.fonts.text,
+      color: theme.colors.primary,
+      fontWeight:400,
+      fontSize: "20px",
+      paddingBottom: "2%",
+      paddingRight:"5%"
+    },
   }
   
   
