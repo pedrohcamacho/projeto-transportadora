@@ -4,18 +4,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck, faUsers, faFileLines, faLocationDot} from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../Styles/theme';
-import Input from '../Components/Input';
+import Contratos from './Contratos';
 
 function Sidebar(props) {
   const [modalIsOpen, setIsOpen] = useState(false); 
-  const [contrato, setContrato] = useState(""); 
-  function openModal() {
+  const [wichModal, setWichModal] = useState("");
+  function openModal(modalProp) {
+    setWichModal(modalProp)
     setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
   }
+
+
     return (
     <>
         <div style={styles.sidebar}>
@@ -25,9 +28,9 @@ function Sidebar(props) {
                 </div>
                 <Link to="/" style={styles.logoText}>Home</Link>
             </div> 
-            <div type='button' style={styles.option} onClick={openModal}>
+            <div type='button' style={styles.option}>
                 <FontAwesomeIcon icon={faFileLines} style={styles.icon}/>
-                <a style={styles.sidebarLink} onClick={openModal}>Contratos</a>
+                <a style={styles.sidebarLink} onClick={() => openModal("contrato")}>Contratos</a>
             </div>  
             <div style={styles.option}>
                 <FontAwesomeIcon icon={faUsers} style={styles.icon}/> 
@@ -40,17 +43,13 @@ function Sidebar(props) {
        
         </div>
         <div style={styles.divContent}>
+    
+            <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
+              {wichModal == "contrato" ? <Contratos/> : null}
+            </ModalWindow>
+
             {props.children}
 
-            <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
-                <h1>Contratos</h1>
-
-                <div style={styles.formGroup}> 
-                  <label style={styles.formLabel}>Contrato</label>
-                  <Input Value={contrato} setValue={setContrato}/>
-                </div> 
-
-            </ModalWindow>
         </div>
     </>
     )
@@ -107,21 +106,6 @@ function Sidebar(props) {
     divContent: { 
       marginLeft: 220,
       padding: "1px",
-      height: "100vh",
-      overflow:"scroll" 
-    },
-    formGroup: { 
-      marginTop: "3%", 
-      width: "600px", 
-      display: "flex" ,
-  },
-  formLabel: {
-      fontFamily: theme.fonts.text,
-      color: theme.colors.primary,
-      fontWeight:400,
-      fontSize: "20px",
-      paddingBottom: "2%",
-      paddingRight:"5%"
     },
   }
   

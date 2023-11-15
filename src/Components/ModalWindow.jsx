@@ -1,4 +1,3 @@
-import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose} from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../Styles/theme';
@@ -6,41 +5,45 @@ import { theme } from '../Styles/theme';
 
 function ModalWindow({modalIsOpen, closeModal, children}) {
 
-  Modal.setAppElement(document.getElementById('root'));
-  
+  if(modalIsOpen)
   return (
-    <Modal
-    isOpen={modalIsOpen}
-    style={styles.customModalStyles.content}
-    contentLabel="Editar"
-  >
-    <div style={styles.headerModal}>
-      <button onClick={closeModal} style={styles.ModalCloseButton}>
-        <FontAwesomeIcon icon={faClose} style={styles.ModalCloseButtonIcon}/>
-      </button>
-    </div>
-
-    {children}
-    
-  </Modal>
+    <div style={styles.background}> 
+      <div style={styles.content}>
+      <div style={styles.headerModal}>
+          <button onClick={closeModal} style={styles.ModalCloseButton}>
+            <FontAwesomeIcon icon={faClose} style={styles.ModalCloseButtonIcon}/>
+          </button>
+        </div>
+          {children}
+      </div>
+  </div>
   )
 }
 
 const styles = {
-  customModalStyles: {
+background:{
+  position:'fixed',
+  top: '0',
+  left: '0',
+  right: '0',
+  bottom:'0',
+  backgroundColor: 'rgb(0,0,0,0.7)',
+  zIndex: '1000'
+},
   content: {
-    top: 'auto',
-    left: 'auto',
-    right: 'auto',
-    bottom: 'auto',
-    
-  }
+    position:'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%,-50%)',
+    padding: 150,
+    backgroundColor:"#fff"
   },
  headerModal: {
-    display: "flex", 
+    position:'fixed',
+    top: '5%',
+    left: '95%',
     flexDirection: "row",
     justifyContent: "flex-end",
-},
 
 ModalCloseButton: {
     display: "flex", 
@@ -51,7 +54,7 @@ ModalCloseButtonIcon: {
   fontWeight: "bold",
   fontSize: "20px",
 },
-
+ }
 }
 
 export default ModalWindow;
