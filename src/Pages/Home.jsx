@@ -1,10 +1,13 @@
 import { theme } from '../Styles/theme';
 
+
 function Home () {
+
     return (
         <div>
             <h1 style={styles.title}>Seja bem vindo!</h1>
         </div>  
+        
     )
 }
 

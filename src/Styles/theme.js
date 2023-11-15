@@ -5,7 +5,6 @@ export const theme = {
         card2:"#793838",
         card3:"#3177A3",
         sidebarText: "#FFFFFF",
-        activeSidebarBackground:"#525252"
     },
   
     fonts: {
