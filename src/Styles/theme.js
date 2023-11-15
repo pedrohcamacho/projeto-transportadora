@@ -6,7 +6,9 @@ export const theme = {
         card3:"#3177A3",
         sidebarText: "#FFFFFF",
         inputBorder: "#D4D1D1",
-        inputOutlineBorder: "#9E9D9D"
+        inputOutlineBorder: "#9E9D9D",
+        error: "#880404",
+        success:"#1C7239"
     },
   
     fonts: {

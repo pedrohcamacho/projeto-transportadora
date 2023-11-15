@@ -35,7 +35,7 @@ background:{
     top: '50%',
     left: '50%',
     transform: 'translate(-50%,-50%)',
-    padding: 150,
+    padding: 80,
     backgroundColor:"#fff"
   },
  headerModal: {
