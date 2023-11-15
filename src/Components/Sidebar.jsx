@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck, faUsers, faFileLines, faLocationDot} from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../Styles/theme';
 import Contratos from './Contratos';
+import Clientes from './Clientes';
 
 function Sidebar(props) {
   const [modalIsOpen, setIsOpen] = useState(false); 
@@ -34,18 +35,18 @@ function Sidebar(props) {
             </div>  
             <div style={styles.option}>
                 <FontAwesomeIcon icon={faUsers} style={styles.icon}/> 
-                <Link to="/clientes" style={styles.sidebarLink}>Clientes</Link>
+                <a style={styles.sidebarLink} onClick={() => openModal("clientes")}>Clientes</a>
             </div>  
             <div style={styles.option}>
                 <FontAwesomeIcon icon={faLocationDot} style={styles.icon}/>
-                <Link to="/rotas" style={styles.sidebarLink}>Rotas</Link>
+                <a style={styles.sidebarLink}>Rotas</a>
             </div>  
        
         </div>
         <div style={styles.divContent}>
     
             <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
-              {wichModal == "contrato" ? <Contratos/> : null}
+              {wichModal == "contrato" ? <Contratos/> : wichModal == "clientes" ? <Clientes/> : null}
             </ModalWindow>
 
             {props.children}

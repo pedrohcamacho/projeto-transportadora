@@ -1,43 +1,51 @@
+  
 import { useState } from 'react';
 import Input from '../Components/Input';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
-function Contratos() {
-    const [contrato, setContrato] = useState(""); 
-    const [data, setDataContrato] = useState(""); 
-    const [valorContrato, setValorContrato] = useState("");
-    const [cliente, setCliente] = useState("Selecionar");
+function Clientes() {
+    const [nome, setNome] = useState(""); 
+    const [Cnpj, setCnpj] = useState(""); 
+    const [celular, setCelular] = useState("");
+    const [inscricao, setInscricao] = useState("");
+    const [endereco, setEndereco] = useState("");
+    const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
     return (
     <div>
-        <h1 style={styles.title}>Contratos</h1>
+        <h1 style={styles.title}>Clientes</h1>
         <div style={styles.form}>
-            
-        
+        <div style={styles.form1}>
         <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Contrato</label>
-            <Input Value={contrato} setValue={setContrato}/>
+            <label style={styles.formLabel}>Nome</label>
+            <Input Value={nome} setValue={setNome}/>
         </div> 
 
+        <div style={Object.assign({},styles.formGroup ,{marginLeft:"3%"})}> 
+            <label style={styles.formLabel}>CNPJ ou CPF</label>
+            <Input Value={Cnpj} setValue={setCnpj}/>
+        </div> 
+        </div>
+          <div style={styles.form1}>
+          <div style={styles.formGroup}> 
+              <label style={styles.formLabel}>RG ou IE</label>
+              <Input Value={inscricao} setValue={setInscricao}/>
+          </div> 
+          <div style={Object.assign({},styles.formGroup ,{marginLeft:"3%"})}> 
+              <label style={styles.formLabel}>Contato</label>
+              <Input Value={celular} setValue={setCelular}/>
+          </div> 
+        </div>
         <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Data do contrato</label>
-            <Input Value={data} setValue={setDataContrato}/>
+            <label style={styles.formLabel}>E-mail</label>
+            <Input Value={email} setValue={setEmail}/>
         </div> 
         <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Selecionar Cliente</label>
-            <select name="select" value={cliente} onChange={e => setCliente(e.target.value)} style={styles.select}>
-            <option value="Selecionar">Selecionar</option>
-              <option value="Cliente 1">Cliente 1</option>
-              <option value="Finalizado">Cliente 2</option>
-            </select>
-        </div> 
-
-        <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Valor do contrato</label>
-            <Input Value={valorContrato} setValue={setValorContrato}/>
+            <label style={styles.formLabel}>Endereço</label>
+            <Input Value={endereco} setValue={setEndereco}/>
         </div> 
         <div style={styles.formButtons}>
             <button type="button" style={Object.assign({},styles.Button, styles.secondary)} onClick={()=> setMessage("sucesso")}>Salvar (sucesso)</button>
@@ -70,8 +78,12 @@ const styles = {
         marginTop: "2%",
         fontWeight: 800
     },
-    form:{
+   form:{
         paddingBottom:"5%"
+    },
+    form1:{
+      display:"flex",
+      flexDirection: "row"
     },
     formGroup: { 
         marginTop: "5%", 
@@ -106,21 +118,6 @@ const styles = {
         cursor:"pointer",
         textDecoration:"none"
       },
-      select: {
-        display: "flex",
-        height: "30px",
-        width:'255px',
-        borderRadius: "5px",
-        borderStyle: "solid",
-        borderWidth: "1px",
-        borderColor: theme.colors.inputBorder,
-        fontFamily: theme.fonts.text,
-        color: theme.colors.primary,
-        backgroundColor:theme.colors.sidebarText,
-        fontSize: "20px",
-        paddingLeft:"2%",
-        outlineColor:theme.colors.inputOutlineBorder,
-      },
       primary:{
         color:theme.colors.primary,
         backgroundColor: theme.colors.inputBorder,
@@ -148,4 +145,4 @@ const styles = {
       
 }
   
-export default Contratos
+export default Clientes
