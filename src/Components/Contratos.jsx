@@ -4,6 +4,7 @@ import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import ModalWindow from '../Components/ModalWindow';
+import rota from '../assets/route.jpg';
 
 function Contratos() {
     const [contrato, setContrato] = useState(""); 
@@ -54,7 +55,7 @@ function Contratos() {
             <button type="button" style={Object.assign({},styles.Button, styles.primary, {marginLeft: "3%"})} onClick={()=> setMessage("erro")}>
                 Salvar (erro)
             </button>
-            <button type="button" style={styles.ButtonFile} onClick={openModal}>Gerar Relatório</button>
+            <button type="button" style={styles.ButtonFile} onClick={openModal}>Anexar rota</button>
         </div>  
         </div>
 
@@ -72,10 +73,11 @@ function Contratos() {
         </div>        
 
         <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
-            <div style={{display:"flex", flexDirection:"column",flexWrap:"nowrap",width:190, height:50}}>
-              <h3 style={Object.assign({}, styles.title, {paddingBottom:"10%"})}>Gerar relatório</h3>
+            <div style={{display:"flex", flexDirection:"column",flexWrap:"nowrap"}}>
+              <h3 style={Object.assign({}, styles.title, {paddingBottom:"10%"})}>Visualizar rota</h3>
+              <img src={rota} alt="" style={styles.imageStyle}/>
               <div style={styles.formButtons}>
-                <button type="button" style={styles.ButtonFile} onClick={closeModal}>Gerar</button>
+                <button type="button" style={styles.ButtonFile} onClick={closeModal}>Anexar</button>
               </div>
             </div>
         </ModalWindow>
@@ -182,8 +184,11 @@ const styles = {
       },
       error:{
         color:theme.colors.error
+      },
+      imageStyle:{
+        width: 700,
+        height: 350,    
       }
-      
 }
   
 export default Contratos

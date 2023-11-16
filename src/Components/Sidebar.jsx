@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ModalWindow from '../Components/ModalWindow';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTruck, faUsers, faFileLines, faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import { faTruck, faUsers, faFileLines} from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../Styles/theme';
 import Contratos from './Contratos';
 import Clientes from './Clientes';
@@ -37,10 +37,7 @@ function Sidebar(props) {
                 <FontAwesomeIcon icon={faUsers} style={styles.icon}/> 
                 <a style={styles.sidebarLink} onClick={() => openModal("clientes")}>Clientes</a>
             </div>  
-            <div style={styles.option}>
-                <FontAwesomeIcon icon={faLocationDot} style={styles.icon}/>
-                <a style={styles.sidebarLink}>Rotas</a>
-            </div>  
+         
        
         </div>
         <div style={styles.divContent}>
