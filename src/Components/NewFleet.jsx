@@ -29,7 +29,7 @@ function NewFleet() {
               <Input Value={placa} setValue={setPlaca}/>
           </div> 
           <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Selecionar Cliente</label>
+            <label style={styles.formLabel}>Selecionar Motorista</label>
             <select name="select" value={motorista} onChange={e => setMotorista(e.target.value)} style={styles.select}>
             <option value="Selecionar">Selecionar</option>
               <option value="Motorista 1">Motorista 1</option>
