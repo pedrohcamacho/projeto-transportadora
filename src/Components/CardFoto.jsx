@@ -1,5 +1,6 @@
 import { theme } from '../Styles/theme'
 import Caminhao from '../assets/caminhao.png';
+import { Link } from 'react-router-dom';
 
 function CardFoto() {  
  
@@ -7,7 +8,7 @@ function CardFoto() {
     <div style={styles.content}>
         <div style={{flexDirection:"column"}}>
           <h1 style={styles.title}>Frotas Cadastradas</h1>
-          <a style={styles.Button}>Consultar</a>
+          <Link to="/frotas" style={styles.Button}>Consultar</Link>
         </div>
         <div>
             <img src={Caminhao} alt="" style={styles.imageStyle}/>
