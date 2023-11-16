@@ -1,20 +1,35 @@
 
+import { useState } from 'react';
 import SuppliesTable from '../Components/SuppliesTable';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faGasPump } from '@fortawesome/free-solid-svg-icons';
+import ModalWindow from '../Components/ModalWindow';
+import NewSupplie from '../Components/NewSupplie';
 
  function Suplies() {
+  const [modalIsOpen, setIsOpen] = useState(false); 
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
     <div >
     <h1 style={styles.title}>Relatório de abastecimentos</h1>
-     <button style={styles.Button}>
+     <button style={styles.Button} onClick={openModal}>
      <FontAwesomeIcon icon={faGasPump} style={styles.iconButton}/>
       Cadastrar abastecimento</button>
      <div style={styles.table}>
          <SuppliesTable/>
      </div>
-     
+     <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
+              <NewSupplie/>
+      </ModalWindow>
  </div>
   )
 }
