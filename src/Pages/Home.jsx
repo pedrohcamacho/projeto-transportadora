@@ -3,6 +3,8 @@ import CardFoto from '../Components/CardFoto';
 import Card from '../Components/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faGasPump,faFileInvoiceDollar,faUserTie } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
+
 function Home () {
 
     return (
@@ -21,7 +23,7 @@ function Home () {
 
                 <Card Class='primary'>
                     <FontAwesomeIcon icon={faFileInvoiceDollar} style={styles.iconCard}/>
-                    <p style={styles.textCard}>Tabela de preços</p>
+                    <Link to="/tabela-de-preços" style={styles.textCard}>Tabela de preços</Link>
                 </Card>
     
                 <Card Class='secondary'>
@@ -54,7 +56,8 @@ const styles = {
     textCard:{
         fontFamily:theme.fonts.text,
         fontWeight: 700,
-        color:theme.colors.sidebarText
+        color:theme.colors.sidebarText,
+        textDecoration:"none"
     },
     iconCard:{
         fontSize:"25px",

@@ -7,6 +7,7 @@ export const theme = {
         sidebarText: "#FFFFFF",
         inputBorder: "#D4D1D1",
         inputOutlineBorder: "#9E9D9D",
+        edit: "#FFC107",
         error: "#880404",
         success:"#1C7239"
     },
