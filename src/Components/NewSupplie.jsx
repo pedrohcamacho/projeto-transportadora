@@ -11,7 +11,7 @@ function NewSupplie() {
     const [litros, setLitros] = useState("");
     const [combustivel, setCombustivel] = useState("");
     const [km, setKm] = useState("");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("sucesso");
     
   return (
     <div>

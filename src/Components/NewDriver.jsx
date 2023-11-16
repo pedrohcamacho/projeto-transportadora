@@ -9,7 +9,7 @@ function NewDriver() {
     const [idade, setIdade] = useState(""); 
     const [cpf, setCpf] = useState(""); 
     const [rg, setRg] = useState(""); 
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("sucesso");
     
   return (
     <div>

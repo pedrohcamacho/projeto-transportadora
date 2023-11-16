@@ -11,7 +11,7 @@ function Contratos() {
     const [data, setDataContrato] = useState(""); 
     const [valorContrato, setValorContrato] = useState("");
     const [cliente, setCliente] = useState("Selecionar");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("sucesso");
     const [modalIsOpen, setIsOpen] = useState(false); 
 
     function openModal() {

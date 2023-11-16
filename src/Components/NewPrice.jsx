@@ -8,7 +8,7 @@ function NewPrice() {
     const [peso, setPeso] = useState("");
     const [destino1, setDestino1] = useState("");
     const [destino2, setDestino2] = useState("");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("sucesso");
     
   return (
     <div>

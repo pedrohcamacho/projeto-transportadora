@@ -9,7 +9,7 @@ function NewFleet() {
     const [ano, setAno] = useState("");
     const [placa, setPlaca] = useState("");
     const [motorista, setMotorista] = useState("");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("sucesso");
     
   return (
     <div>
