@@ -1,11 +1,12 @@
 
 import { useState } from 'react';
-import SuppliesTable from '../Components/SuppliesTable';
+import Table from '../Components/Table';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faGasPump } from '@fortawesome/free-solid-svg-icons';
 import ModalWindow from '../Components/ModalWindow';
 import NewSupplie from '../Components/NewSupplie';
+import {supplies} from '../Data/DataTable';
 
  function Suplies() {
   const [modalIsOpen, setIsOpen] = useState(false); 
@@ -25,7 +26,7 @@ import NewSupplie from '../Components/NewSupplie';
      <FontAwesomeIcon icon={faGasPump} style={styles.iconButton}/>
       Cadastrar abastecimento</button>
      <div style={styles.table}>
-         <SuppliesTable/>
+         <Table data={supplies}/>
      </div>
      <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
               <NewSupplie/>

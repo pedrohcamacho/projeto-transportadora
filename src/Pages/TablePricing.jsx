@@ -1,11 +1,12 @@
 
 import { useState } from 'react';
-import PricingTable from '../Components/PricingTable';
+import Table from '../Components/Table';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import ModalWindow from '../Components/ModalWindow';
 import NewPrice from '../Components/NewPrice';
+import {priceTable} from '../Data/DataTable';
 
 function TablePricing() {
   const [modalIsOpen, setIsOpen] = useState(false); 
@@ -24,7 +25,7 @@ function TablePricing() {
      <FontAwesomeIcon icon={faMoneyBill} style={styles.iconButton}/>
       Cadastrar precificação</button>
         <div style={styles.table}>
-            <PricingTable/>
+            <Table data={priceTable}/>
         </div>
         <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
               <NewPrice/>

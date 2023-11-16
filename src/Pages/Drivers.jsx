@@ -1,11 +1,12 @@
 
 import { useState } from 'react';
 import ModalWindow from '../Components/ModalWindow';
-import DriverTable from '../Components/DriverTable';
+import Table from '../Components/Table';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser } from '@fortawesome/free-solid-svg-icons';
 import NewDriver from '../Components/NewDriver';
+import {drivers} from '../Data/DataTable';
 
  function Drivers() {
   const [modalIsOpen, setIsOpen] = useState(false); 
@@ -24,7 +25,7 @@ import NewDriver from '../Components/NewDriver';
      <FontAwesomeIcon icon={faUser} style={styles.iconButton}/>
       Cadastrar motorista</button>
      <div style={styles.table}>
-         <DriverTable/>
+         <Table data={drivers}/>
      </div>
      <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
           <NewDriver/>

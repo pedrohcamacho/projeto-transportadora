@@ -3,6 +3,7 @@ import Input from '../Components/Input';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import ModalWindow from '../Components/ModalWindow';
 
 function Contratos() {
     const [contrato, setContrato] = useState(""); 
@@ -10,6 +11,15 @@ function Contratos() {
     const [valorContrato, setValorContrato] = useState("");
     const [cliente, setCliente] = useState("Selecionar");
     const [message, setMessage] = useState("");
+    const [modalIsOpen, setIsOpen] = useState(false); 
+
+    function openModal() {
+      setIsOpen(true);
+    }
+  
+    function closeModal() {
+      setIsOpen(false);
+    }
 
     return (
     <div>
@@ -44,6 +54,7 @@ function Contratos() {
             <button type="button" style={Object.assign({},styles.Button, styles.primary, {marginLeft: "3%"})} onClick={()=> setMessage("erro")}>
                 Salvar (erro)
             </button>
+            <button type="button" style={styles.ButtonFile} onClick={openModal}>Gerar Relatório</button>
         </div>  
         </div>
 
@@ -59,6 +70,15 @@ function Contratos() {
             </div>
             }
         </div>        
+
+        <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
+            <div style={{display:"flex", flexDirection:"column",flexWrap:"nowrap",width:190, height:50}}>
+              <h3 style={Object.assign({}, styles.title, {paddingBottom:"10%"})}>Gerar relatório</h3>
+              <div style={styles.formButtons}>
+                <button type="button" style={styles.ButtonFile} onClick={closeModal}>Gerar</button>
+              </div>
+            </div>
+        </ModalWindow>
     </div>
     )
 }
@@ -92,7 +112,7 @@ const styles = {
         flexDirection: "row" 
     },
       Button: {
-        width: 200,
+        width: 170,
         height: "45px",
         borderRadius: "5px",
         textAlign: "center",
@@ -104,7 +124,25 @@ const styles = {
         fontSize: "17px",
         fontWeight: 700,
         cursor:"pointer",
-        textDecoration:"none"
+        textDecoration:"none",
+      },
+      ButtonFile: {
+        width: 170,
+        height: "45px",
+        borderRadius: "5px",
+        textAlign: "center",
+        border: "0px solid",
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        backgroundColor:theme.colors.success,
+        color:theme.colors.sidebarText,
+        fontFamily: theme.fonts.text,
+        fontSize: "17px",
+        fontWeight: 700,
+        cursor:"pointer",
+        textDecoration:"none",
+        marginLeft: "3%"
       },
       select: {
         display: "flex",

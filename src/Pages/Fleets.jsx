@@ -1,11 +1,13 @@
 
 import { useState } from 'react';
 import ModalWindow from '../Components/ModalWindow';
-import FleetsTable from '../Components/FleetsTable';
+import Table from '../Components/Table';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTruck } from '@fortawesome/free-solid-svg-icons';
 import NewFleet from '../Components/NewFleet';
+import {fleets} from '../Data/DataTable';
+
  function Fleets() {
   const [modalIsOpen, setIsOpen] = useState(false); 
 
@@ -23,7 +25,8 @@ import NewFleet from '../Components/NewFleet';
      <FontAwesomeIcon icon={faTruck} style={styles.iconButton}/>
       Cadastrar frota</button>
      <div style={styles.table}>
-         <FleetsTable/>
+
+         <Table data={fleets}/>
      </div>
      <ModalWindow modalIsOpen={modalIsOpen} closeModal={closeModal}>
           <NewFleet/>
