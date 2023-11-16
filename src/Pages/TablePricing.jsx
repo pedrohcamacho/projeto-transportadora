@@ -55,7 +55,7 @@ Button: {
   alignItems: "center",
   fontFamily: theme.fonts.text,
   color:theme.colors.sidebarText,
-  backgroundColor:theme.colors.card2,
+  backgroundColor:theme.colors.card3,
   fontSize: "17px",
   fontWeight: 700,
   cursor:"pointer",

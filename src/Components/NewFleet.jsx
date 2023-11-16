@@ -1,43 +1,40 @@
-import { useState } from 'react';
+import {useState} from 'react'
 import Input from '../Components/Input';
 import { theme } from '../Styles/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
-function Contratos() {
-    const [contrato, setContrato] = useState(""); 
-    const [data, setDataContrato] = useState(""); 
-    const [valorContrato, setValorContrato] = useState("");
-    const [cliente, setCliente] = useState("Selecionar");
+function NewFleet() {
+    const [descricao, setDescricao] = useState("");
+    const [ano, setAno] = useState("");
+    const [placa, setPlaca] = useState("");
+    const [motorista, setMotorista] = useState("");
     const [message, setMessage] = useState("");
-
-    return (
+    
+  return (
     <div>
-        <h1 style={styles.title}>Contratos</h1>
-        <div style={styles.form}>
-            
+              <div style={styles.form}>
+        <div style={styles.formGroup}> 
+            <label style={styles.formLabel}>Descrição da frota</label>
+            <Input Value={descricao} setValue={setDescricao}/>
+        </div> 
+
+        <div style={Object.assign({},styles.formGroup)}> 
+            <label style={styles.formLabel}>Ano / Modelo</label>
+            <Input Value={ano} setValue={setAno}/>
+        </div> 
         
-        <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Contrato</label>
-            <Input Value={contrato} setValue={setContrato}/>
-        </div> 
-
-        <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Data do contrato</label>
-            <Input Value={data} setValue={setDataContrato}/>
-        </div> 
-        <div style={styles.formGroup}> 
+          <div style={styles.formGroup}> 
+              <label style={styles.formLabel}>Destino 2</label>
+              <Input Value={placa} setValue={setPlaca}/>
+          </div> 
+          <div style={styles.formGroup}> 
             <label style={styles.formLabel}>Selecionar Cliente</label>
-            <select name="select" value={cliente} onChange={e => setCliente(e.target.value)} style={styles.select}>
+            <select name="select" value={motorista} onChange={e => setMotorista(e.target.value)} style={styles.select}>
             <option value="Selecionar">Selecionar</option>
-              <option value="Cliente 1">Cliente 1</option>
-              <option value="Cliente 2">Cliente 2</option>
+              <option value="Motorista 1">Motorista 1</option>
+              <option value="Motorista 2">Motorista 2</option>
             </select>
-        </div> 
-
-        <div style={styles.formGroup}> 
-            <label style={styles.formLabel}>Valor do contrato</label>
-            <Input Value={valorContrato} setValue={setValorContrato}/>
         </div> 
         <div style={styles.formButtons}>
             <button type="button" style={Object.assign({},styles.Button, styles.secondary)} onClick={()=> setMessage("sucesso")}>Salvar (sucesso)</button>
@@ -46,6 +43,7 @@ function Contratos() {
             </button>
         </div>  
         </div>
+
 
         <div style={Object.assign({}, message=="sucesso" ? styles.success : styles.error)}>
             {message == "sucesso" ? 
@@ -58,9 +56,9 @@ function Contratos() {
                 <p style={styles.textMessage}>Ocorreu um erro ao salvar!</p>
             </div>
             }
-        </div>        
+        </div>
     </div>
-    )
+  )
 }
 
 const styles = {
@@ -70,8 +68,12 @@ const styles = {
         marginTop: "2%",
         fontWeight: 800
     },
-    form:{
+   form:{
         paddingBottom:"5%"
+    },
+    form1:{
+      display:"flex",
+      flexDirection: "row"
     },
     formGroup: { 
         marginTop: "5%", 
@@ -145,7 +147,6 @@ const styles = {
       error:{
         color:theme.colors.error
       }
-      
-}
-  
-export default Contratos
+    }
+
+export default NewFleet
