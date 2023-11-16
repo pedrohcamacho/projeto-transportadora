@@ -28,7 +28,7 @@ function Home () {
     
                 <Card Class='secondary'>
                 <FontAwesomeIcon icon={faUserTie} style={styles.iconCard}/>
-                <Link to="/abastecimentos" style={styles.textCard}>Motoristas</Link>
+                <Link to="/motoristas" style={styles.textCard}>Motoristas</Link>
                 </Card>
             </div>
         </div>  
