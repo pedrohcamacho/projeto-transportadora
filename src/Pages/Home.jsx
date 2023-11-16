@@ -18,7 +18,7 @@ function Home () {
                 
                 <Card>
                     <FontAwesomeIcon icon={faGasPump} style={styles.iconCard}/>
-                    <p style={styles.textCard}>Abastecimentos</p>
+                    <Link to="/abastecimentos" style={styles.textCard}>Abastecimentos</Link>
                 </Card>
 
                 <Card Class='primary'>
@@ -28,7 +28,7 @@ function Home () {
     
                 <Card Class='secondary'>
                 <FontAwesomeIcon icon={faUserTie} style={styles.iconCard}/>
-                <p style={styles.textCard}>Motoristas</p>
+                <Link to="/abastecimentos" style={styles.textCard}>Motoristas</Link>
                 </Card>
             </div>
         </div>  
